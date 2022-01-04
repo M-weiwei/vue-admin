@@ -25,12 +25,12 @@ module.exports = {
             args[0].chunksSortMode = "none";
             return args;
         });
-        config.resolve.alias // 添加别名
-            .set('@', resolve('src'))
-            .set('@assets', resolve('src/assets'))
-            .set('@components', resolve('src/components'))
-            .set('@views', resolve('src/views'))
-            .set('@store', resolve('src/store'));
+        // config.resolve.alias
+        //     .set('styles', resolve('src/assets/styles'))
+        //     .set('@', path.join(__dirname, 'src'))
+        //     .set('components', path.join(__dirname, 'src/components'))
+        //     .set('mixins', path.join(__dirname, 'src/mixins'))
+        //     .set('store', path.join(__dirname, 'src/store'))
         // 压缩图片
         // 需要 npm i -D image-webpack-loader
         config.module
@@ -79,10 +79,15 @@ module.exports = {
                 })
             );
         }
+
         config.plugins = [...config.plugins, ...plugins];
         config.resolve = {
-
+            extensions: ['.js', '.vue', '.json'],
+            alias: {
+                '@': path.resolve(__dirname, './src')
+            }
         }
+
     },
     css: {
         // 是否分离css（插件ExtractTextPlugin）
@@ -107,13 +112,14 @@ module.exports = {
         hotOnly: true, // 热更新
         // proxy: 'http://localhost:8080'   // 配置跨域处理,只有一个代理
         proxy: { //配置多个跨域
-            "/api": {
-                target: "http://172.11.11.11:7071",
+            "/vue_admin_api": {
+                target: "http://old.web-jshtml.cn/",
                 changeOrigin: true,
                 // ws: true,//websocket支持
+                ws: true,
                 secure: false,
                 pathRewrite: {
-                    "^/api": "/"
+                    "^/vue_admin_api": "/"
                 }
             },
             "/api2": {

@@ -1,8 +1,17 @@
-import { createStore } from "vuex";
-
+import {
+    createStore
+} from "vuex";
+import login from './modules/login'
 export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+    state: {
+        //定义菜单状态
+
+    },
+    mutations: {
+
+    },
+    actions: {},
+    modules: {
+        login
+    },
 });

@@ -7,15 +7,18 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
 *{
     box-sizing: border-box;
 }
-html, body {
+
    
 
 body {
     font-family: "Microsoft YaHei";
     font-size:14px;
     color:#333;
-
 }
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 h1, h2, h3, h4, h5, h6{font-weight:normal;}
 ul,ol {
@@ -56,7 +59,7 @@ textarea {
     width: 0;
     height: 0;
     visibility: hidden;
-    display: block;
+    display: none;
     clear: both;
     overflow:hidden;
 }

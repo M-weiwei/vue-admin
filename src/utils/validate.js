@@ -9,7 +9,7 @@ export function checkName(val) {
 }
 //验证邮箱
 export function validateEmail(val) {
-    let reg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$ /
+    let reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
     return reg.test(val) ? false : true
 }
 //验证密码
